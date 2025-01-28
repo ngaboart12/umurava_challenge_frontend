@@ -12,7 +12,7 @@ const Header: React.FC = () => {
 
   return (
     <header className="border-b w-full bg-white">
-      <div className="flex justify-between items-center px-4 md:px-16 py-4">
+      <div className="flex justify-between items-center px-6 md:px-16 py-4">
         {/* Logo */}
         <Link href="/">
           <Image
@@ -25,7 +25,7 @@ const Header: React.FC = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center space-x-10 text-[16px] text-gray-800">
+        <nav className="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-800">
           <Link href="/" className="hover:text-blue-600">
             Home
           </Link>
@@ -43,16 +43,15 @@ const Header: React.FC = () => {
           </Link>
         </nav>
 
-        {/* Button */}
+        {/* Join Button */}
         <div className="hidden md:block">
           <Link
             href="/join"
-            className="px-6 py-2 bg-black text-white rounded hover:bg-gray-800 transition"
+            className="px-5 py-2 bg-black text-white rounded-md font-medium hover:bg-gray-900 transition"
           >
             Join the Program
           </Link>
         </div>
-
 
         {/* Mobile Menu Button */}
         <button
@@ -88,7 +87,7 @@ const Header: React.FC = () => {
             </Link>
             <Link
               href="/join"
-              className="px-6 py-2 bg-blue-700 text-white rounded hover:bg-blue-800 transition"
+              className="px-6 py-2 bg-black text-white rounded-md font-medium hover:bg-gray-900 transition"
             >
               Join the Program
             </Link>
