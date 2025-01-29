@@ -1,60 +1,76 @@
-import React from "react";
+import React from 'react';
 
 const steps = [
     {
-        id: 1,
-        title: "Sign up on Umurava Platform",
-        description: "Submit your completed project for evaluation",
+        number: 1,
+        title: 'Sign up on Umurava Platform',
+        description: 'Submit your completed project for evaluation',
+        image: '/images/ch1.jpg'
     },
     {
-        id: 2,
-        title: "Browse Open Challenges",
-        description: "Explore the range of challenges and hackathons and choose one that aligns with your interests and career goals",
+        number: 2,
+        title: 'Register and Participate',
+        description: 'Sign up for the challenge and start working on the project.',
+        image: '/images/ch2.jpg'
     },
     {
-        id: 3,
-        title: "Register and Participate",
-        description: "Sign up for the challenge and start working on the project.",
+        number: 3,
+        title: 'Browse Open Challenges',
+        description: 'Explore the range of challenges and hackathons and choose one that aligns with your interests and career goals',
+        image: '/images/ch2.jpg'
     },
     {
-        id: 4,
-        title: "Submit your work",
-        description: "Submit your completed project for evaluation",
+        number: 4,
+        title: 'Submit your work',
+        description: 'Submit your completed project for evaluation',
+        image: '/images/ch2.jpg'
     },
     {
-        id: 5,
-        title: "Receive Feedback and Recognition",
-        description: "Get feedback on your work and celebrate your achievements",
-    },
+        number: 5,
+        title: 'Receive Feedback and Recognition',
+        description: 'Get feedback on your work and celebrate your achievements',
+        image: '/api/placeholder/280/200'
+    }
 ];
 
 const HowToGetStarted = () => {
     return (
-        <div className="w-full bg-white py-16">
-            <div className="max-w-4xl mx-auto px-4">
-                <h2 className="text-2xl font-bold text-center text-gray-900 mb-12">
+        <div className="bg-white">
+            <div className="max-w-6xl mx-auto py-16 px-4">
+                <h2 className="text-2xl font-bold text-center text-[#1a1a1a] mb-12">
                     How to Get Started
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <div className="grid grid-cols-1 gap-12">
                     {steps.map((step, index) => (
                         <div
-                            key={step.id}
-                            className={`bg-white rounded-lg p-6 ${index === steps.length - 1 && steps.length % 2 !== 0
-                                    ? "md:col-span-2 md:max-w-md md:mx-auto"
-                                    : ""
-                                }`}
+                            key={step.number}
+                            className={`flex items-start gap-4 ${index % 2 === 0 ? 'pr-[50%]' : 'pl-[50%]'}`}
                         >
-                            <div className="mb-3">
-                                <span className="inline-block px-3 py-1 bg-blue-600 text-white text-sm font-medium rounded-full">
-                                    Step {step.id}
-                                </span>
+                            <div className="flex-shrink-0">
+                                <div className="h-6 w-16 bg-blue-600 rounded-md flex items-center justify-center">
+                                    <span className="text-white text-xs font-medium">
+                                        Step {step.number}
+                                    </span>
+                                </div>
                             </div>
-                            <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                                {step.title}
-                            </h3>
-                            <p className="text-gray-600">
-                                {step.description}
-                            </p>
+                            <div className="flex-1">
+                                <h3 className="text-lg font-semibold text-[#1a1a1a] mb-1">
+                                    {step.title}
+                                </h3>
+                                <p className="text-sm text-gray-600 mb-4">
+                                    {step.description}
+                                </p>
+                                {index === 0 || index === 2 ? (
+                                    <div className="rounded-lg overflow-hidden border border-gray-200">
+                                        <img
+                                            src={step.image}
+                                            alt={`Step ${step.number}`}
+                                            className="w-full h-48 object-cover"
+                                        />
+                                    </div>
+                                ) : null}
+                            </div>
                         </div>
                     ))}
                 </div>

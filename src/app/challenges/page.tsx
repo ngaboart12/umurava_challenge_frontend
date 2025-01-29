@@ -65,7 +65,7 @@ export default function Challenges() {
                             </a>
                         </div>
 
-                        <div className="md:w-1/2 mt-6 md:mt-0 flex justify-center relative w-full h-64">
+                        <div className="md:w-3/4 mt-6 md:mt-0 flex justify-center relative w-full h-96">
                             <Image
                                 src="/images/dashboard.jpg"
                                 alt="Dashboard Preview"
@@ -73,6 +73,7 @@ export default function Challenges() {
                                 className="rounded-lg shadow-lg object-cover"
                             />
                         </div>
+
                     </div>
                 </section>
             </main>

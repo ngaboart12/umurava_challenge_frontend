@@ -63,7 +63,7 @@ export default function SkillsChallenges() {
                 {/* Right: Image */}
                 <div className="flex justify-center">
                     <Image
-                        src="/images/skills.JPG"
+                        src="/images/skills.jpg"
                         alt="Skills Challenges Platform"
                         width={600}
                         height={400}
