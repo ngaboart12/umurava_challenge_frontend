@@ -25,7 +25,7 @@ export default function Home() {
                     {/* Right Section - Single Image */}
                     <div className="relative w-full aspect-[4/3]">
                         <Image
-                            src="/images/main.JPG"
+                            src="/images/mainc.jpg"
                             alt="Team working and person with laptop"
                             fill
                             className="object-cover rounded-lg"
