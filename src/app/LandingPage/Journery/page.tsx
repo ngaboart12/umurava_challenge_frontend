@@ -3,19 +3,18 @@ import Image from 'next/image';
 
 const CareerCard = () => {
     return (
-        <div className="h-screen bg-gray-50 p-4 flex items-center" style={{height: '100%'}}>
+        <div className="h-screen bg-gray-50 p-4 flex items-center" style={{ height: '100%' }}>
             <div className="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8">
                 <div className="max-w-5xl mx-auto overflow-hidden bg-[#2563EB] text-white rounded-xl shadow-lg">
                     <div className="flex flex-col md:flex-row items-center p-8 gap-8">
                         {/* Image Section */}
                         <div className="w-full md:w-1/2">
-                            <div className="rounded-lg overflow-hidden relative w-full h-64">
+                            <div className="md:w-3/4 mt-6 md:mt-0 flex justify-center relative w-full h-80">
                                 <Image
-                                    src="/images/student.jpeg"
+                                    src="/images/ready.JPG"
                                     alt="Students collaborating"
-                                    layout="fill"
-                                    objectFit="cover"
-                                    className="rounded-lg"
+                                    fill
+                                    className="rounded-lg shadow-lg object-cover"
                                 />
                             </div>
                         </div>

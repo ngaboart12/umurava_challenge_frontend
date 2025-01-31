@@ -18,10 +18,11 @@ const Header: React.FC = () => {
           <Image
             src="/umurava.ico.png"
             alt="Umurava Logo"
-            width={120}
-            height={40}
+            width={240}
+            height={160} 
             className="object-contain"
           />
+
         </Link>
 
         {/* Desktop Menu */}

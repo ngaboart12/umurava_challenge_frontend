@@ -9,13 +9,13 @@ const challenges = [
         timeline: "15 Days",
         status: "Open",
     },
-    {
-        title: "Develop an AI Chatbot for Customer Support",
-        skills: ["Machine Learning", "Natural Language Processing"],
-        levels: ["Intermediate", "Senior"],
-        timeline: "30 Days",
-        status: "Open",
-    },
+    // {
+    //     title: "Develop an AI Chatbot for Customer Support",
+    //     skills: ["Machine Learning", "Natural Language Processing"],
+    //     levels: ["Intermediate", "Senior"],
+    //     timeline: "30 Days",
+    //     status: "Open",
+    // },
     {
         title: "Create a Mobile App for E-commerce",
         skills: ["React Native", "Mobile Development"],
@@ -47,16 +47,16 @@ export default function ExploreChallenges() {
             </div>
 
             {/* Challenges Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 mb-12">
                 {challenges.map((challenge, index) => (
                     <div key={index} className="border border-gray-200 rounded-xl bg-white shadow-md overflow-hidden">
                         {/* Logo & Status */}
                         <div className="relative bg-blue-600 h-44 flex items-center justify-center">
                             <Image
-                                src="/umurava.ico.png"
+                                src="/images/umurava_white_lo.PNG"
                                 alt="Umurava Logo"
-                                width={100}
-                                height={100}
+                                width={300}
+                                height={300}
                                 className="object-contain"
                             />
                             <span className="absolute top-3 right-3 bg-green-500 text-white text-xs px-3 py-1 rounded-full">

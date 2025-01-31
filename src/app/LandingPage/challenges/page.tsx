@@ -1,8 +1,13 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 export default function Challenges() {
+    const [currentSlide, setCurrentSlide] = useState(0);
+
     const tags = [
         "UI/UX Design",
         "Data Science",
@@ -14,6 +19,8 @@ export default function Challenges() {
         "Web3",
         "Digital Marketing & Communications",
     ];
+
+    const slides = [1, 2, 3, 4]; // Placeholder for multiple slides
 
     return (
         <div className="bg-white min-h-screen">
@@ -38,7 +45,10 @@ export default function Challenges() {
                         {tags.map((tag) => (
                             <button
                                 key={tag}
-                                className="bg-blue-100 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-200 focus:ring focus:ring-blue-300"
+                                className={`px-4 py-2 rounded-lg transition-colors duration-200 ${tag === "UI/UX Design"
+                                        ? "bg-blue-600 text-white"
+                                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                                    }`}
                             >
                                 {tag}
                             </button>
@@ -50,8 +60,14 @@ export default function Challenges() {
                 <section className="mt-12">
                     <div className="flex flex-col md:flex-row items-center bg-gray-100 rounded-lg p-6">
                         <div className="md:w-1/2 text-center md:text-left">
-                            <div className="inline-block bg-blue-100 text-blue-600 p-4 rounded-full mb-4">
-                                <span className="font-bold text-xl">sf</span>
+                            <div className="inline-block text-blue-600 p-4 mb-4">
+                                <Image
+                                    src="/images/sf.JPG"
+                                    alt="sf"
+                                    width={80}
+                                    height={80}
+                                    style={{ borderRadius: "5px" }}
+                                />
                             </div>
                             <p className="text-gray-700 text-lg font-medium">
                                 The Embedded Finance Platform and Payroll Management Software
@@ -59,9 +75,10 @@ export default function Challenges() {
                             </p>
                             <a
                                 href="#"
-                                className="mt-4 inline-block text-blue-600 font-semibold hover:underline"
+                                className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-200"
                             >
                                 Learn more
+                                <ArrowRight className="w-4 h-4" />
                             </a>
                         </div>
 
@@ -73,7 +90,21 @@ export default function Challenges() {
                                 className="rounded-lg shadow-lg object-cover"
                             />
                         </div>
+                    </div>
 
+                    {/* Dots Navigation */}
+                    <div className="flex justify-center gap-2 mt-8">
+                        {slides.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setCurrentSlide(index)}
+                                className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSlide === index
+                                        ? "w-6 bg-blue-600"
+                                        : "bg-gray-300 hover:bg-gray-400"
+                                    }`}
+                                aria-label={`Go to slide ${index + 1}`}
+                            />
+                        ))}
                     </div>
                 </section>
             </main>
