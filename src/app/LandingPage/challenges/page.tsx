@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Challenges() {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -43,17 +44,28 @@ export default function Challenges() {
                     {/* Tags Section */}
                     <div className="flex flex-wrap justify-center gap-4 mt-6">
                         {tags.map((tag) => (
-                            <button
+                            <Link
                                 key={tag}
-                                className={`px-4 py-2 rounded-lg transition-colors duration-200 ${tag === "UI/UX Design"
+                                href="/challenges"
+                                className={`px-4 py-2 rounded-lg transition-colors duration-200 ${
+                                    tag === "UI/UX Design"
                                         ? "bg-blue-600 text-white"
                                         : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                                    }`}
+                                }`}
                             >
                                 {tag}
-                            </button>
+                            </Link>
                         ))}
                     </div>
+
+                    {/* View All Link */}
+                    <Link
+                        href="/challenges"
+                        className="inline-flex items-center text-blue-600 hover:text-blue-700 mt-8 font-medium"
+                    >
+                        View All Challenges
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
                 </section>
 
                 {/* Showcase Section */}
@@ -73,13 +85,13 @@ export default function Challenges() {
                                 The Embedded Finance Platform and Payroll Management Software
                                 Solutions for your organization and Workforce.
                             </p>
-                            <a
+                            <Link
                                 href="#"
                                 className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-200"
                             >
                                 Learn more
                                 <ArrowRight className="w-4 h-4" />
-                            </a>
+                            </Link>
                         </div>
 
                         <div className="md:w-3/4 mt-6 md:mt-0 flex justify-center relative w-full h-96">
