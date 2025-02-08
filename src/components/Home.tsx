@@ -1,13 +1,15 @@
 'use client'
 
-import Banner from "../app/LandingPage/main/page";
-import WorkExperience from "../app/LandingPage/experience/page";
-import Challenges from "../app/LandingPage/challenges/page";
-import ExploreChallenges from "../app/LandingPage/explore/page";
-import SkillsChallenges from "../app/LandingPage/skillsChallenges/page";
-import Testimonials from "../app/LandingPage/Testimonies/page";
-import HowToGetStarted from "../app/LandingPage/howToGetStarted/page";
-import CareerCard from "../app/LandingPage/Journery/page";
+import Challenges from "@/app/(landing)/LandingPage/challenges/page";
+import WorkExperience from "@/app/(landing)/LandingPage/experience/page";
+import ExploreChallenges from "@/app/(landing)/LandingPage/explore/page";
+import HowToGetStarted from "@/app/(landing)/LandingPage/howToGetStarted/page";
+import CareerCard from "@/app/(landing)/LandingPage/Journery/page";
+import Banner from "@/app/(landing)/LandingPage/main/page";
+import SkillsChallenges from "@/app/(landing)/LandingPage/skillsChallenges/page";
+import Testimonials from "@/app/(landing)/LandingPage/Testimonies/page";
+
+
 
 export default function Home() {
     return (

@@ -47,11 +47,10 @@ export default function Challenges() {
                             <Link
                                 key={tag}
                                 href="/challenges"
-                                className={`px-4 py-2 rounded-lg transition-colors duration-200 ${
-                                    tag === "UI/UX Design"
-                                        ? "bg-blue-600 text-white"
-                                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                                }`}
+                                className={`px-4 py-2 rounded-lg transition-colors duration-200 ${tag === "UI/UX Design"
+                                    ? "bg-blue-600 text-white"
+                                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                                    }`}
                             >
                                 {tag}
                             </Link>
@@ -69,32 +68,34 @@ export default function Challenges() {
                 </section>
 
                 {/* Showcase Section */}
-                <section className="mt-12">
-                    <div className="flex flex-col md:flex-row items-center bg-gray-100 rounded-lg p-6">
-                        <div className="md:w-1/2 text-center md:text-left">
-                            <div className="inline-block text-blue-600 p-4 mb-4">
-                                <Image
-                                    src="/images/sf.JPG"
-                                    alt="sf"
-                                    width={80}
-                                    height={80}
-                                    style={{ borderRadius: "5px" }}
-                                />
+                <section className="mt-12 w-full px-4 md:px-12 lg:px-24 xl:px-32">
+                    <div className="flex flex-col md:flex-row items-center bg-gray-100 rounded-lg overflow-hidden">
+                        <div className="md:w-1/2 p-8 lg:p-12">
+                            <div className="text-center md:text-left">
+                                <div className="inline-block text-blue-600 p-4 mb-4">
+                                    <Image
+                                        src="/images/sf.JPG"
+                                        alt="sf"
+                                        width={80}
+                                        height={80}
+                                        className="rounded"
+                                    />
+                                </div>
+                                <p className="text-gray-700 text-lg font-medium">
+                                    The Embedded Finance Platform and Payroll Management Software
+                                    Solutions for your organization and Workforce.
+                                </p>
+                                <Link
+                                    href="#"
+                                    className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-200"
+                                >
+                                    Learn more
+                                    <ArrowRight className="w-4 h-4" />
+                                </Link>
                             </div>
-                            <p className="text-gray-700 text-lg font-medium">
-                                The Embedded Finance Platform and Payroll Management Software
-                                Solutions for your organization and Workforce.
-                            </p>
-                            <Link
-                                href="#"
-                                className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-200"
-                            >
-                                Learn more
-                                <ArrowRight className="w-4 h-4" />
-                            </Link>
                         </div>
 
-                        <div className="md:w-3/4 mt-6 md:mt-0 flex justify-center relative w-full h-96">
+                        <div className="md:w-3/4 relative w-full h-96">
                             <Image
                                 src="/images/dashboard.jpg"
                                 alt="Dashboard Preview"
@@ -111,8 +112,8 @@ export default function Challenges() {
                                 key={index}
                                 onClick={() => setCurrentSlide(index)}
                                 className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSlide === index
-                                        ? "w-6 bg-blue-600"
-                                        : "bg-gray-300 hover:bg-gray-400"
+                                    ? "w-6 bg-blue-600"
+                                    : "bg-gray-300 hover:bg-gray-400"
                                     }`}
                                 aria-label={`Go to slide ${index + 1}`}
                             />

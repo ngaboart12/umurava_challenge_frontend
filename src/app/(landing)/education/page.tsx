@@ -7,19 +7,19 @@ export default function EducationInstitutions() {
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <section className="bg-white py-16 md:py-24 w-full">
+        <div className="w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center w-full">
             {/* Left Content */}
-            <div className="space-y-6">
+            <div className="space-y-6 w-full px-4 md:px-12 lg:px-24 xl:px-32">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0052FF] leading-tight">
                 Accelerate Your Students and Trainees&apos;s Employability and Career Growth through Project-based Learning Solution
               </h1>
               <p className="text-gray-600 text-lg leading-relaxed">
-                We partner with Universities, Schools, and Training Institutions to build the work experience of their 
+                We partner with Universities, Schools, and Training Institutions to build the work experience of their
                 students and trainees through project based learning challenges and hackathons
               </p>
-              <Link 
+              <Link
                 href="/partner"
                 className="inline-block bg-[#0052FF] text-white px-8 py-3 rounded-md font-medium hover:bg-blue-600 transition-colors"
               >
@@ -28,10 +28,10 @@ export default function EducationInstitutions() {
             </div>
 
             {/* Right Image */}
-            <div className="relative">
+            <div className="relative w-full px-4 md:px-12 lg:px-24 xl:px-32">
               <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500 rounded-full opacity-10 -translate-y-12 translate-x-12" />
               <img
-                src="/students-learning.jpg"
+                src="/images/mainStudent.JPG"
                 alt="Students Learning"
                 className="relative z-10 w-full h-auto rounded-lg shadow-lg"
               />
@@ -45,7 +45,7 @@ export default function EducationInstitutions() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-3xl font-bold text-center mb-12">Key Offerings & Benefits:</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
             {/* Card 1 */}
             <div className="bg-[#4285F4] rounded-lg p-8 text-white">
@@ -128,41 +128,41 @@ export default function EducationInstitutions() {
           {/* First Row of Logos */}
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center mb-12">
             <div className="flex justify-center">
-              <img src="/placeholder-logo1.png" alt="Tori" className="h-12 object-contain" />
+              <img src="/images/tori.JPG" alt="Tori" className="h-12 object-contain" />
             </div>
             <div className="flex justify-center">
-              <img src="/placeholder-logo2.png" alt="GDG Kigali" className="h-12 object-contain" />
+              <img src="/images/google.JPG" alt="GDG Kigali" className="h-12 object-contain" />
             </div>
             <div className="flex justify-center">
-              <img src="/placeholder-logo3.png" alt="The Education Collaborative" className="h-12 object-contain" />
+              <img src="/images/collaborative.JPG" alt="The Education Collaborative" className="h-12 object-contain" />
             </div>
             <div className="flex justify-center">
-              <img src="/placeholder-logo4.png" alt="Kepler" className="h-12 object-contain" />
+              <img src="/images/kepler.JPG" alt="Kepler" className="h-12 object-contain" />
             </div>
             <div className="flex justify-center">
-              <img src="/placeholder-logo5.png" alt="HIIL" className="h-12 object-contain" />
+              <img src="/images/hiil.JPG" alt="HIIL" className="h-12 object-contain" />
             </div>
           </div>
 
           {/* Second Row of Logos */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center mb-12">
             <div className="flex justify-center">
-              <img src="/placeholder-logo6.png" alt="ARED" className="h-12 object-contain" />
+              <img src="/images/ared.JPG" alt="ARED" className="h-12 object-contain" />
             </div>
             <div className="flex justify-center">
-              <img src="/placeholder-logo7.png" alt="IGIHE" className="h-12 object-contain" />
+              <img src="/images/igihe.JPG" alt="IGIHE" className="h-12 object-contain" />
             </div>
             <div className="flex justify-center">
-              <img src="/placeholder-logo8.png" alt="Viamo" className="h-12 object-contain" />
+              <img src="/images/viamo.JPG" alt="Viamo" className="h-12 object-contain" />
             </div>
             <div className="flex justify-center">
-              <img src="/placeholder-logo9.png" alt="Laterite" className="h-12 object-contain" />
+              <img src="/images/laterite.JPG" alt="Laterite" className="h-12 object-contain" />
             </div>
           </div>
 
           {/* Last Logo Centered */}
           <div className="flex justify-center">
-            <img src="/placeholder-logo10.png" alt="Final Partner" className="h-12 object-contain" />
+            <img src="/images/collaborative.JPG" alt="Final Partner" className="h-12 object-contain" />
           </div>
         </div>
       </section>
@@ -214,16 +214,16 @@ export default function EducationInstitutions() {
       </section>
 
       {/* Integration Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl font-bold text-center mb-16">
-            How Skills Challenges Program can Be<br />
-            Integrated into your Learning Institution
-          </h2>
+      <section className="py-16 bg-gray-50 w-full">
+        <h2 className="text-3xl font-bold text-center mb-16 px-4">
+          How Skills Challenges Program can Be<br />
+          Integrated into your Learning Institution
+        </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center w-full">
             {/* Left Side - Integration Steps */}
-            <div className="space-y-8">
+            <div className="space-y-8 w-full px-4 md:px-12 lg:px-24 xl:px-32">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#4285F4] text-white flex items-center justify-center font-semibold">
                   1
@@ -281,10 +281,10 @@ export default function EducationInstitutions() {
             </div>
 
             {/* Right Side - Platform Image */}
-            <div className="relative">
+            <div className="relative w-full px-4 md:px-12 lg:px-24 xl:px-32">
               <div className="relative z-10">
                 <img
-                  src="/platform-preview.png"
+                  src="/images/institution.JPG"
                   alt="Umurava Platform Interface"
                   className="w-full h-auto rounded-lg shadow-xl"
                 />

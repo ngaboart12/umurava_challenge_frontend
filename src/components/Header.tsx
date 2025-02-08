@@ -1,14 +1,28 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 const Header: React.FC = () => {
   const [isOpened, setIsOpened] = useState(false);
+  const { data: userProfile } = useSession()
+  const [dashlink, setLink] = useState<string>("/dashboard")
 
   const handleShowMenu = () => {
     setIsOpened(!isOpened);
   };
+
+  useEffect(() => {
+    if (userProfile?.user.role == "admin") {
+      setLink("/admin")
+    } else {
+      setLink("/dashboard")
+    }
+
+  }, [userProfile])
+
+
 
   return (
     <header className="border-b w-full bg-white">
@@ -19,7 +33,7 @@ const Header: React.FC = () => {
             src="/umurava.ico.png"
             alt="Umurava Logo"
             width={240}
-            height={160} 
+            height={160}
             className="object-contain"
           />
 
@@ -46,12 +60,24 @@ const Header: React.FC = () => {
 
         {/* Join Button */}
         <div className="hidden md:block">
-          <Link
-            href="/join"
-            className="px-5 py-2 bg-black text-white rounded-md font-medium hover:bg-gray-900 transition"
-          >
-            Join the Program
-          </Link>
+          {userProfile?.user.role ? (
+
+            <Link
+              href={dashlink}
+              className="px-6 py-2 bg-black text-white rounded-md font-medium hover:bg-gray-900 transition"
+            >
+              Dashboard
+            </Link>
+
+          ) : (
+            <Link
+              href="/auth"
+              className="px-6 py-2 bg-black text-white rounded-md font-medium hover:bg-gray-900 transition"
+            >
+              Join the Program
+            </Link>
+
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -86,12 +112,23 @@ const Header: React.FC = () => {
             <Link href="/contact" className="hover:text-blue-600">
               Contact Us
             </Link>
-            <Link
-              href="/join"
-              className="px-6 py-2 bg-black text-white rounded-md font-medium hover:bg-gray-900 transition"
-            >
-              Join the Program
-            </Link>
+            {userProfile?.user.role ? (
+              <Link
+                href="/auth"
+                className="px-6 py-2 bg-black text-white rounded-md font-medium hover:bg-gray-900 transition"
+              >
+                Join the Program
+              </Link>
+
+            ) : (
+              <Link
+                href={dashlink}
+                className="px-6 py-2 bg-black text-white rounded-md font-medium hover:bg-gray-900 transition"
+              >
+                Dashboard
+              </Link>
+
+            )}
           </nav>
         </div>
       )}

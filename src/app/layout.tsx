@@ -1,35 +1,34 @@
-import type { Metadata } from "next";
+"use client";
 import { Inter } from "next/font/google";
+import { SessionProvider } from "next-auth/react";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { Provider } from "react-redux";
+import { store } from "@/lib/redux/store";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Umurava Platform",
-  description: "Umurava Platform",
-  icons: {
-    icon: '/umurava.ico',
-    shortcut: '/umurava.ico',
-    apple: '/umurava.png',
-  },
-};
-
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body className={`${inter.className} antialiased min-h-screen flex flex-col`}>
-        <Header />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en">
+            <head>
+                <title>Umurava Platform</title>
+                <meta name="description" content="Umurava Platform" />
+                <link rel="icon" href="/umurava.ico" />
+                <link rel="apple-touch-icon" href="/umurava.png" />
+            </head>
+            <body className={`${inter.className} antialiased min-h-screen flex flex-col`}>
+                <SessionProvider>
+                    <Provider store={store}>
+                        <Toaster position={`top-right`} />
+                    <main className="flex-grow">{children}</main>
+                    </Provider>
+                </SessionProvider>
+            </body>
+        </html>
+    );
 }
