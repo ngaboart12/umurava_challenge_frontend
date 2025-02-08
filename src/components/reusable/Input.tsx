@@ -1,5 +1,4 @@
 import React from 'react'
-import { Input } from '../../../../umurava_dashaboard/components/ui/input';
 
 interface InputProps {
     label: string;
