@@ -21,6 +21,7 @@ const ChallengeValidationSchema = Yup.object({
     skills: Yup.array().min(1, "sills is required"),
     seniority: Yup.array().required('Seniority level is required'),
     status: Yup.string().required('Status is required'),
+    submitLInk: Yup.string().required("Submission Link is required")
 });
 
 const NewChallenge = () => {
@@ -42,7 +43,8 @@ const NewChallenge = () => {
             category: '',
             skills: [],
             seniority: [],
-            status: ''
+            status: '',
+            submitLInk: ''
         },
         validationSchema: ChallengeValidationSchema,
         onSubmit: async (values) => {
@@ -169,6 +171,7 @@ const NewChallenge = () => {
                         onChange={challengeFormik.handleChange}
                         error={challengeFormik.touched.status && challengeFormik.errors.status ? challengeFormik.errors.status : ""}
                     />
+
                     <div className='flex flex-col gap-[10px]'>
                         <label htmlFor='projectDescription' className='text-[14px] font-[500] text-[#1A1A21]'>Project Description</label>
                         <textarea
@@ -208,6 +211,15 @@ const NewChallenge = () => {
                             <div className='text-red-500 text-[12px]'>{challengeFormik.errors.projectTask}</div>
                         ) : null}
                     </div>
+                    <InputField
+                        label='Submission Link'
+                        placeholder='Enter Submission Link'
+                        type='text'
+                        name='submitLInk'
+                        value={challengeFormik.values.submitLInk}
+                        onChange={challengeFormik.handleChange}
+                        error={challengeFormik.touched.submitLInk && challengeFormik.errors.submitLInk ? challengeFormik.errors.submitLInk : ""}
+                    />
                     <div className='flex flex-row gap-[20px] items-center'>
                         <Button className='w-full h-[50px] bg-transparent border-[2px] border-primary text-primary rounded-[8px] text-[14px] font-[500]'>Cancel</Button>
                         <Button type="submit" className='w-full h-[50px]'>

@@ -5,25 +5,25 @@ const steps = [
         number: 1,
         title: 'Sign up on Umurava Platform',
         description: 'Submit your completed project for evaluation',
-        image: '/images/ch1.jpg'
+        image: '/images/ch1.JPG'
     },
     {
         number: 2,
         title: 'Register and Participate',
         description: 'Sign up for the challenge and start working on the project.',
-        image: '/images/ch2.jpg'
+        image: '/images/ch2.JPG'
     },
     {
         number: 3,
         title: 'Browse Open Challenges',
         description: 'Explore the range of challenges and hackathons and choose one that aligns with your interests and career goals',
-        image: '/images/ch2.jpg'
+        image: '/images/ch2.JPG'
     },
     {
         number: 4,
         title: 'Submit your work',
         description: 'Submit your completed project for evaluation',
-        image: '/images/ch2.jpg'
+        image: '/images/ch2.JPG'
     },
     {
         number: 5,

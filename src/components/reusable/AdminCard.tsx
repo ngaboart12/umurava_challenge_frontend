@@ -13,7 +13,7 @@ const AdminCard = ({ title, number, icon, percentage }: AdminCardProps) => {
         <div className='flex flex-col gap-[10px] p-4 bg-[#FFFFFF] border-[2px] border-[#E4E7EC] rounded-[12px] w-full'>
             <div className='px-2 ml-auto' >
                 <select name="" id="" className='text-[14px] font-[400] text-[#475367]'>
-                    <option value="">This Week</option>
+                    <option value="">This Year</option>
                 </select>
             </div>
             <div className='flex flex-row gap-[10px] items-center'>

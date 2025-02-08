@@ -29,16 +29,16 @@ const ContactComponent = ({ title, description, icon }: contactComponentProps) =
     )
 }
 
-const ChallengeDetails = () => {
+const SingleChallenge = () => {
     const router = useRouter();
     const params = useParams();
     const id = params?.id;
     const { data: singleChallenge, isLoading, isFetching, error } = useSingleChallengeQuery(id!);
 
     return (
-        <div className='flex flex-col gap-[20px] items-center  h-full w-full'>
+        <div className="min-h-screen bg-white py-6 px-4 sm:px-6 lg:px-20 flex flex-col gap-[10px]">
             {isLoading ? (
-                <div className='w-full py-20 items-center justify-center flex flex-col gap-[20px]'>
+                <div className='w-full py-24 items-center justify-center flex flex-col gap-[20px]'>
                     <RiseLoader color='skyblue' />
                 </div>
 
@@ -50,7 +50,7 @@ const ChallengeDetails = () => {
                     ) : (
                         <>
 
-                            <div className='flex sm:flex-row flex-col gap-[20px] items-center p-4 w-full bg-white border-t-[2px] border-b-[2px] border-[#E4E7EC]'>
+                            <div className='flex sm:flex-row flex-col gap-[20px] items-center p-4 w-full bg-white  border-[#E4E7EC]'>
                                 <div onClick={() => router.back()} className='flex flex-row gap-[10px] items-center cursor-pointer font-[500]'>
                                     <div className='border-[1.5px] p-2 cursor-pointer hover:bg-[#F0F2F5] rounded-[6px]'>
                                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -175,10 +175,6 @@ const ChallengeDetails = () => {
 
                                                 } />
                                         </div>
-                                        <div className='flex flex-row gap-[10px] items-center'>
-                                            <Link href={`${singleChallenge.data.submitLInk}`} target={`_blank`} className='h-[50px] bg-primary rounded-[8px] flex items-center justify-center text-white w-full'>Submit your work</Link>
-                                        </div>
-
                                     </div>
                                 </div>
 
@@ -191,4 +187,4 @@ const ChallengeDetails = () => {
     )
 }
 
-export default ChallengeDetails
+export default SingleChallenge

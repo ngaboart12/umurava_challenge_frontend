@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link'
 import { usePathname } from 'next/navigation';
 import React from 'react'
+import { RiseLoader } from 'react-spinners';
 
 
 const ChallengeAndHackthons = () => {
@@ -71,8 +72,8 @@ const ChallengeAndHackthons = () => {
             </div>
             <div className='w-full flex flex-col py-4'>
                 {challengeLoading ? (
-                    <div className='w-full py-10 flex'>
-                        <span>Loading...</span>
+                    <div className='w-full py-20 items-center justify-center flex flex-col gap-[20px]'>
+                        <RiseLoader color='skyblue' />
                     </div>
                 ) : (
                     <>

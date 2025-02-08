@@ -15,7 +15,7 @@ const HomeCard = ({ title, description, icon }: HomeCardProps) => {
                 <div className='p-1 rounded-[10px] bg-primary'></div>
                 <div className='flex flex-col'>
                     <h1 className='text-[14px] font-[400]'>{title}</h1>
-                    <span className='text-[16px] font-[600]'>05</span>
+                    <span className='text-[16px] font-[600]'>0</span>
                 </div>
             </div>
             <div className='p-2 rounded-full bg-[#D0E0FC]'>

@@ -97,7 +97,7 @@ export default function Challenges() {
 
                         <div className="md:w-3/4 relative w-full h-96">
                             <Image
-                                src="/images/dashboard.jpg"
+                                src="/images/dashboard.JPG"
                                 alt="Dashboard Preview"
                                 fill
                                 className="rounded-lg shadow-lg object-cover"

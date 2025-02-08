@@ -8,15 +8,15 @@ export default function AboutUs() {
   return (
     <main className="min-h-screen bg-white">
       {/* Our Story Section */}
-      <section className="py-16 md:py-24 w-full">
+      <section className=" md:py-24 w-full">
         <div className="w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 items-center w-full">
             {/* Left Content */}
             <div className="space-y-6 w-full px-4 md:px-12 lg:px-24 xl:px-32">
-              <h1 className="text-4xl md:text-5xl font-bold text-[#4285F4]">
+              <h1 className="text-4xl md:text-4xl font-bold text-[#4285F4]">
                 Our Story
               </h1>
-              <div className="space-y-6 text-gray-800 text-lg">
+              <div className="space-y-6 text-gray-800 text-[16px]">
                 <p className="leading-relaxed">
                   With 3 years of experience matching African digital talents to local and global job markets, we still have a
                   significant number of jobs that remain unfilled due to the lack of experienced African talents.
@@ -37,6 +37,9 @@ export default function AboutUs() {
               >
                 <video
                   className="w-full h-full object-cover"
+                  autoPlay
+                  muted
+                  playsInline
                   controls
                   poster="/video-thumbnail.jpg"
                   style={{

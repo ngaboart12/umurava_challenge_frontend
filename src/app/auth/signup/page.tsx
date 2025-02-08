@@ -7,6 +7,7 @@ import axios, { AxiosError } from "axios"
 import { useRegisterMutation } from '@/lib/redux/slices/AuthSlice'
 import {toast,Toaster} from "sonner"
 
+
 const SignUp = () => {
     const [profilePicture, setProfilePicture] = useState<File | null>(null)
     const [profilePictureUrl, setProfilePictureUrl] = useState<string | null>(null)
@@ -67,7 +68,7 @@ const SignUp = () => {
     }
 
     return (
-        <div className='flex flex-col gap-[20px] w-5/7'>
+        <div className='flex flex-col gap-[20px] w-full md:w-5/7'>
             <Toaster position={'top-center'} />
 
             <div className='flex flex-col gap-[5px]'>

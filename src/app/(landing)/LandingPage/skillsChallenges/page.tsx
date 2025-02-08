@@ -67,7 +67,7 @@ export default function SkillsChallenges() {
                     <div className="flex justify-center pl-8">
                         <div className="relative w-full max-w-xl">
                             <Image
-                                src="/images/skills.jpg"
+                                src="/images/skills.JPG"
                                 alt="Skills Challenges Platform"
                                 width={600}
                                 height={400}

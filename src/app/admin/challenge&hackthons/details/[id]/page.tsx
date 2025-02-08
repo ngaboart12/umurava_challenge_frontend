@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
+import { RiseLoader } from 'react-spinners';
 import { toast } from 'sonner';
 
 interface contactComponentProps {
@@ -52,7 +53,8 @@ const ChallengeDetails = () => {
     return (
         <div className='flex flex-col gap-[20px] items-center  h-full w-full'>
             {isLoading ? (
-                <div className="flex justify-center items-center h-screen">
+                <div className='w-full py-20 items-center justify-center flex flex-col gap-[20px]'>
+                    <RiseLoader color='skyblue' />
                 </div>
 
             ) : (

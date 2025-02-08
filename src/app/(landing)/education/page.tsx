@@ -7,12 +7,12 @@ export default function EducationInstitutions() {
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-white py-16 md:py-24 w-full">
+      <section className="bg-white w-full px-[10px] md:px-[50px] lg:px-[100px]">
         <div className="w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 items-center w-full">
             {/* Left Content */}
-            <div className="space-y-6 w-full px-4 md:px-12 lg:px-24 xl:px-32">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0052FF] leading-tight">
+            <div className="space-y-6 w-full">
+              <h1 className="text-3xl md:text-[22px] lg:text-[26px] font-bold text-[#0052FF] leading-tight">
                 Accelerate Your Students and Trainees&apos;s Employability and Career Growth through Project-based Learning Solution
               </h1>
               <p className="text-gray-600 text-lg leading-relaxed">
@@ -28,14 +28,12 @@ export default function EducationInstitutions() {
             </div>
 
             {/* Right Image */}
-            <div className="relative w-full px-4 md:px-12 lg:px-24 xl:px-32">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500 rounded-full opacity-10 -translate-y-12 translate-x-12" />
+            <div className="relative w-full py-14 pl-10">
               <img
                 src="/images/mainStudent.JPG"
                 alt="Students Learning"
                 className="relative z-10 w-full h-auto rounded-lg shadow-lg"
               />
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-500 rounded-full opacity-10 translate-y-12 -translate-x-12" />
             </div>
           </div>
         </div>
@@ -297,24 +295,37 @@ export default function EducationInstitutions() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="bg-[#4285F4] py-16">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-white mb-8">
-              Ready to transform your<br />learning institution?
-            </h2>
-            <Link
-              href="/partner"
-              className="inline-block bg-white text-[#4285F4] px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors"
-            >
-              Let's Partner
-            </Link>
+      <div className='px-[10px] md:px-[50px] lg:px-[100px] py-10'>
+
+        <section className="bg-[#4285F4] py-16 relative rounded-[18px]">
+          <div className="container mx-auto px-4 md:px-6 text-center">
+            <div className="max-w-2xl mx-auto">
+              <h2 className="text-3xl font-bold text-white mb-8">
+                Ready to transform your<br />learning institution?
+              </h2>
+              <Link
+                href="/partner"
+                className="inline-block bg-white text-[#4285F4] px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors"
+              >
+                Let's Partner
+              </Link>
+            </div>
+            {/* Decorative Circles */}
+            <div className="absolute left-0 bottom-0 w-48 h-48 bg-blue-400 rounded-full opacity-10" />
+            <div className="absolute right-0 top-0 w-32 h-32 bg-blue-400 rounded-full opacity-10" />
           </div>
-          {/* Decorative Circles */}
-          <div className="absolute left-0 bottom-0 w-48 h-48 bg-blue-400 rounded-full opacity-10" />
-          <div className="absolute right-0 top-0 w-32 h-32 bg-blue-400 rounded-full opacity-10" />
-        </div>
-      </section>
+          <div className="absolute top-0 right-0 flex">
+            <svg width="211" height="129" viewBox="0 0 211 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M53.4058 -262.633C26.7419 -229.607 9.31402 -190.099 2.89943 -148.14C-3.51517 -106.181 1.31303 -63.2715 16.8916 -23.7871C32.4703 15.6973 58.2419 50.3438 91.5785 76.619C124.915 102.894 164.624 119.858 206.655 125.781C248.686 131.704 291.537 126.373 330.836 110.333C370.135 94.2933 404.477 68.1176 430.36 34.4756C456.243 0.83362 472.741 -39.071 478.171 -81.1689C483.601 -123.267 477.769 -166.052 461.27 -205.16L393.26 -176.468C404.685 -149.388 408.723 -119.762 404.963 -90.6116C401.203 -61.4614 389.78 -33.8298 371.857 -10.5348C353.935 12.7603 330.155 30.8854 302.942 41.9922C275.73 53.0989 246.059 56.7899 216.955 52.6888C187.85 48.5877 160.355 36.8411 137.271 18.6471C114.187 0.453019 96.342 -23.5376 85.5548 -50.8782C74.7675 -78.2188 71.4243 -107.931 75.866 -136.985C80.3077 -166.04 92.3755 -193.396 110.839 -216.265L53.4058 -262.633Z" fill="white" fillOpacity="0.14" />
+            </svg>
+          </div>
+          <div className="absolute bottom-0 rotate-180 left-0 flex">
+            <svg width="211" height="129" viewBox="0 0 211 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M53.4058 -262.633C26.7419 -229.607 9.31402 -190.099 2.89943 -148.14C-3.51517 -106.181 1.31303 -63.2715 16.8916 -23.7871C32.4703 15.6973 58.2419 50.3438 91.5785 76.619C124.915 102.894 164.624 119.858 206.655 125.781C248.686 131.704 291.537 126.373 330.836 110.333C370.135 94.2933 404.477 68.1176 430.36 34.4756C456.243 0.83362 472.741 -39.071 478.171 -81.1689C483.601 -123.267 477.769 -166.052 461.27 -205.16L393.26 -176.468C404.685 -149.388 408.723 -119.762 404.963 -90.6116C401.203 -61.4614 389.78 -33.8298 371.857 -10.5348C353.935 12.7603 330.155 30.8854 302.942 41.9922C275.73 53.0989 246.059 56.7899 216.955 52.6888C187.85 48.5877 160.355 36.8411 137.271 18.6471C114.187 0.453019 96.342 -23.5376 85.5548 -50.8782C74.7675 -78.2188 71.4243 -107.931 75.866 -136.985C80.3077 -166.04 92.3755 -193.396 110.839 -216.265L53.4058 -262.633Z" fill="white" fillOpacity="0.14" />
+            </svg>
+          </div>
+        </section>
+      </div >
     </main>
   );
 }

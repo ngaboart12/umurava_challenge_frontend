@@ -3,11 +3,13 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
+import { usePathname } from "next/navigation";
 
 const Header: React.FC = () => {
   const [isOpened, setIsOpened] = useState(false);
   const { data: userProfile } = useSession()
   const [dashlink, setLink] = useState<string>("/dashboard")
+  const pathname = usePathname()
 
   const handleShowMenu = () => {
     setIsOpened(!isOpened);
@@ -25,8 +27,8 @@ const Header: React.FC = () => {
 
 
   return (
-    <header className="border-b w-full bg-white">
-      <div className="flex justify-between items-center px-6 md:px-16 py-4">
+    <header className="w-full bg-white">
+      <div className="flex justify-between items-center px-6 ipad:px-16 py-4">
         {/* Logo */}
         <Link href="/">
           <Image
@@ -40,31 +42,31 @@ const Header: React.FC = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-800">
-          <Link href="/" className="hover:text-blue-600">
+        <nav className="hidden ipad:flex items-center space-x-8 text-sm font-medium text-gray-800">
+          <Link href="/" className={`${pathname == "/" ? "text-blue-600" : ""} hover:text-blue-600`}>
             Home
           </Link>
-          <Link href="/challenges" className="hover:text-blue-600">
+          <Link href="/challenges" className={`${pathname?.includes("/challenges") ? "text-blue-600" : ""} hover:text-blue-600`}>
             Challenge & Hackathons
           </Link>
-          <Link href="/education" className="hover:text-blue-600">
+          <Link href="/education" className={`${pathname == "/education" ? "text-blue-600" : ""} hover:text-blue-600`}>
             For Educational Institutions
           </Link>
-          <Link href="/about" className="hover:text-blue-600">
+          <Link href="/about" className={`${pathname == "/about" ? "text-blue-600" : ""} hover:text-blue-600`}>
             About Us
           </Link>
-          <Link href="/contact" className="hover:text-blue-600">
+          <Link href="/contact" className={`${pathname == "/contact" ? "text-blue-600" : ""} hover:text-blue-600`}>
             Contact Us
           </Link>
         </nav>
 
         {/* Join Button */}
-        <div className="hidden md:block">
+        <div className="hidden ipad:block">
           {userProfile?.user.role ? (
 
             <Link
               href={dashlink}
-              className="px-6 py-2 bg-black text-white rounded-md font-medium hover:bg-gray-900 transition"
+              className="px-6 py-2 bg-black text-white rounded-ipad font-medium hover:bg-gray-900 transition"
             >
               Dashboard
             </Link>
@@ -72,7 +74,7 @@ const Header: React.FC = () => {
           ) : (
             <Link
               href="/auth"
-              className="px-6 py-2 bg-black text-white rounded-md font-medium hover:bg-gray-900 transition"
+              className="px-6 py-2 bg-black text-white rounded-ipad font-medium hover:bg-gray-900 transition"
             >
               Join the Program
             </Link>
@@ -82,7 +84,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="block md:hidden focus:outline-none"
+          className="block ipad:hidden focus:outline-none"
           onClick={handleShowMenu}
         >
           <div className="space-y-1">
@@ -95,27 +97,36 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu */}
       {isOpened && (
-        <div className="absolute top-16 left-0 right-0 bg-white shadow-lg py-4 z-50">
+        <div className="absolute ipad:hidden top-0  left-0 right-0 bg-white shadow-lg py-14 z-50">
+          <button
+            className="block ipad:hidden focus:outline-none absolute right-4 top-4 "
+            onClick={handleShowMenu}
+          >
+            <div className="space-y-1 relative">
+              <span className="block w-6 h-0.5 bg-gray-800 rotate-45 absolute"></span>
+              <span className="block w-6 h-0.5 bg-gray-800 rotate-[-45deg]"></span>
+            </div>
+          </button>
           <nav className="flex flex-col items-center space-y-4">
-            <Link href="/" className="hover:text-blue-600">
+            <Link href="/" className={`${pathname == "/" ? "text-blue-600" : ""} hover:text-blue-600`}>
               Home
             </Link>
-            <Link href="/challenges" className="hover:text-blue-600">
+            <Link href="/challenges" className={`${pathname?.includes("/challenges") ? "text-blue-600" : ""} hover:text-blue-600`}>
               Challenge & Hackathons
             </Link>
-            <Link href="/education" className="hover:text-blue-600">
+            <Link href="/education" className={`${pathname == "/education" ? "text-blue-600" : ""} hover:text-blue-600`}>
               For Educational Institutions
             </Link>
-            <Link href="/about" className="hover:text-blue-600">
+            <Link href="/about" className={`${pathname == "/about" ? "text-blue-600" : ""} hover:text-blue-600`}>
               About Us
             </Link>
-            <Link href="/contact" className="hover:text-blue-600">
+            <Link href="/contact" className={`${pathname == "/contact" ? "text-blue-600" : ""} hover:text-blue-600`}>
               Contact Us
             </Link>
             {userProfile?.user.role ? (
               <Link
                 href="/auth"
-                className="px-6 py-2 bg-black text-white rounded-md font-medium hover:bg-gray-900 transition"
+                className="px-6 py-2 bg-black text-white rounded-ipad font-medium hover:bg-gray-900 transition"
               >
                 Join the Program
               </Link>
@@ -123,7 +134,7 @@ const Header: React.FC = () => {
             ) : (
               <Link
                 href={dashlink}
-                className="px-6 py-2 bg-black text-white rounded-md font-medium hover:bg-gray-900 transition"
+                className="px-6 py-2 bg-black text-white rounded-ipad font-medium hover:bg-gray-900 transition"
               >
                 Dashboard
               </Link>

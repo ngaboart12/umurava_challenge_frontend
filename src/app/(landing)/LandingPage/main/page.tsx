@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Banner() {
     return (
         <div className="min-h-screen bg-white">
-            <main className="flex items-center justify-center px-6 md:px-20 py-16">
+            <main className="flex items-center justify-center px-6 md:px-20">
                 <div className="max-w-9xl w-full grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
                     {/* Left Section */}
                     <div className="text-center md:text-left ml-0 md:ml-[10px]">
@@ -29,7 +29,7 @@ export default function Banner() {
                     <div className="relative w-full max-w-xl md:max-w-5xl">
 
                         <Image
-                            src="/images/mainc.jpg"
+                            src="/images/mainc.JPG"
                             alt="Team working and person with laptop"
                             width={700} // Set explicit width
                             height={450} // Set explicit height (adjust based on your image)

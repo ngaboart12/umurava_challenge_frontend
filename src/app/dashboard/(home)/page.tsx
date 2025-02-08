@@ -9,11 +9,11 @@ import Image from 'next/image'
 import { useChallengeQuery } from '@/lib/redux/slices/ChallengeSlice'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
+import { RiseLoader } from 'react-spinners'
 
 const Dashaboard = () => {
   const { data: challenge, isLoading: challengeLoading } = useChallengeQuery({})
   const { data: userProfile, status } = useSession()
-  console.log("user profile", userProfile)
   return (
     <div className='flex flex-col gap-[10px] items-center px-4 h-full py-4 w-full'>
       <div className='flex flex-col sm:flex-row items-center gap-[20px] justify-between w-full'>
@@ -35,7 +35,7 @@ const Dashaboard = () => {
         </Button>
       </div>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[20px] items-center w-full'>
-        <HomeCard title='Completed Challenges' description='05' icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <HomeCard title='Completed Challenges' description={challenge?.data?.filter((status:any)=> status.status == "complete")?.length} icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fillRule="evenodd" clipRule="evenodd" d="M15.7161 16.9736H8.49609C8.08209 16.9736 7.74609 16.6376 7.74609 16.2236C7.74609 15.8096 8.08209 15.4736 8.49609 15.4736H15.7161C16.1301 15.4736 16.4661 15.8096 16.4661 16.2236C16.4661 16.6376 16.1301 16.9736 15.7161 16.9736Z" fill="#2B71F0" />
           <path fillRule="evenodd" clipRule="evenodd" d="M15.7161 12.787H8.49609C8.08209 12.787 7.74609 12.451 7.74609 12.037C7.74609 11.623 8.08209 11.287 8.49609 11.287H15.7161C16.1301 11.287 16.4661 11.623 16.4661 12.037C16.4661 12.451 16.1301 12.787 15.7161 12.787Z" fill="#2B71F0" />
           <path fillRule="evenodd" clipRule="evenodd" d="M11.2501 8.61023H8.49512C8.08112 8.61023 7.74512 8.27423 7.74512 7.86023C7.74512 7.44623 8.08112 7.11023 8.49512 7.11023H11.2501C11.6641 7.11023 12.0001 7.44623 12.0001 7.86023C12.0001 8.27423 11.6641 8.61023 11.2501 8.61023Z" fill="#2B71F0" />
@@ -48,7 +48,7 @@ const Dashaboard = () => {
         </svg>
         } />
 
-        <HomeCard title='Open Challenges' description='05' icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <HomeCard title='Open Challenges' description={challenge?.data?.filter((status:any)=> status.status == "open")?.length} icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fillRule="evenodd" clipRule="evenodd" d="M15.7161 16.9736H8.49609C8.08209 16.9736 7.74609 16.6376 7.74609 16.2236C7.74609 15.8096 8.08209 15.4736 8.49609 15.4736H15.7161C16.1301 15.4736 16.4661 15.8096 16.4661 16.2236C16.4661 16.6376 16.1301 16.9736 15.7161 16.9736Z" fill="#2B71F0" />
           <path fillRule="evenodd" clipRule="evenodd" d="M15.7161 12.787H8.49609C8.08209 12.787 7.74609 12.451 7.74609 12.037C7.74609 11.623 8.08209 11.287 8.49609 11.287H15.7161C16.1301 11.287 16.4661 11.623 16.4661 12.037C16.4661 12.451 16.1301 12.787 15.7161 12.787Z" fill="#2B71F0" />
           <path fillRule="evenodd" clipRule="evenodd" d="M11.2501 8.61023H8.49512C8.08112 8.61023 7.74512 8.27423 7.74512 7.86023C7.74512 7.44623 8.08112 7.11023 8.49512 7.11023H11.2501C11.6641 7.11023 12.0001 7.44623 12.0001 7.86023C12.0001 8.27423 11.6641 8.61023 11.2501 8.61023Z" fill="#2B71F0" />
@@ -60,7 +60,7 @@ const Dashaboard = () => {
           </g>
         </svg>
         } />
-        <HomeCard title='Ongoing Challenges' description='05' icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <HomeCard title='Ongoing Challenges' description={challenge?.data?.filter((status:any)=> status.status == "pending")?.length} icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fillRule="evenodd" clipRule="evenodd" d="M15.7161 16.9736H8.49609C8.08209 16.9736 7.74609 16.6376 7.74609 16.2236C7.74609 15.8096 8.08209 15.4736 8.49609 15.4736H15.7161C16.1301 15.4736 16.4661 15.8096 16.4661 16.2236C16.4661 16.6376 16.1301 16.9736 15.7161 16.9736Z" fill="#2B71F0" />
           <path fillRule="evenodd" clipRule="evenodd" d="M15.7161 12.787H8.49609C8.08209 12.787 7.74609 12.451 7.74609 12.037C7.74609 11.623 8.08209 11.287 8.49609 11.287H15.7161C16.1301 11.287 16.4661 11.623 16.4661 12.037C16.4661 12.451 16.1301 12.787 15.7161 12.787Z" fill="#2B71F0" />
           <path fillRule="evenodd" clipRule="evenodd" d="M11.2501 8.61023H8.49512C8.08112 8.61023 7.74512 8.27423 7.74512 7.86023C7.74512 7.44623 8.08112 7.11023 8.49512 7.11023H11.2501C11.6641 7.11023 12.0001 7.44623 12.0001 7.86023C12.0001 8.27423 11.6641 8.61023 11.2501 8.61023Z" fill="#2B71F0" />
@@ -86,8 +86,8 @@ const Dashaboard = () => {
         </div>
         <div className='w-full flex flex-row'>
           {challengeLoading ? (
-            <div className='w-full flex flex-row items-center justify-center py-20'>
-              <span className='text-[14px] font-[400]'>Loading...</span>
+            <div className='w-full py-20 items-center justify-center flex flex-col gap-[20px]'>
+              <RiseLoader color='skyblue' />
             </div>
           ) : (
             <>

@@ -56,6 +56,9 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      screens: {
+        ipad: "1235px",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

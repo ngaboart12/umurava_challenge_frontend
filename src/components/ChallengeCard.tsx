@@ -3,75 +3,61 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from "next/navigation"
 
 interface ChallengeCardProps {
-  skills?: string[];
-  seniorityLevel?: string;
-  timeline?: string;
+  challenge: any
+  unique: number
+
 }
 
-export default function ChallengeCard({ 
-  skills = ['UX/UI Design', 'User Research', 'User Research'],
-  seniorityLevel = 'Junior, Intermediate, Senior',
-  timeline = '15 Days'
-}: ChallengeCardProps) {
+export default function ChallengeCard({ challenge, unique }: ChallengeCardProps) {
   return (
-    <div className="bg-white rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition-all">
-      {/* Logo Section */}
-      <div className="bg-[#4285F4] p-6 flex justify-center items-center">
+    <div key={unique} className="border border-gray-200 rounded-xl bg-white shadow-md overflow-hidden">
+      {/* Logo & Status */}
+      <div className="relative bg-blue-600 h-44 flex items-center justify-center">
         <Image
-          src="/umurava.ico.png"
+          src="/images/umurava_white_lo.png"
           alt="Umurava Logo"
-          width={120}
-          height={40}
+          width={300}
+          height={300}
           className="object-contain"
         />
+        <span className="absolute top-3 right-3 bg-green-500 text-white text-xs px-3 py-1 rounded-full">
+          {challenge.status}
+        </span>
       </div>
 
-      {/* Content */}
-      <div className="p-4">
-        {/* Title and Status */}
-        <div className="flex justify-between items-start mb-4">
-          <h3 className="text-lg font-semibold text-gray-800">
-            Design a Dashboard for SokoFund
-          </h3>
-          <span className="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">
-            Open
-          </span>
-        </div>
+      {/* Challenge Content */}
+      <div className="p-6 flex flex-col gap-[20px]">
+        <h2 className="text-lg font-semibold text-gray-900 mb-4">{challenge.title}</h2>
 
-        {/* Skills Section */}
-        <div className="mb-4">
-          <p className="text-sm text-gray-600 mb-2">Skills Needed:</p>
-          <div className="flex flex-wrap gap-2">
-            {skills.map((skill, index) => (
-              <span
-                key={index}
-                className="px-3 py-1 text-xs bg-gray-100 rounded-full text-gray-700"
-              >
-                {skill}
-              </span>
-            ))}
+        <div className="space-y-3">
+          <div>
+            <p className="text-sm font-medium text-gray-700 mb-1">Skills Needed:</p>
+            <div className="flex flex-wrap gap-2">
+              {challenge.skills.map((skill: any, idx: number) => (
+                <span key={idx} className="text-xs text-gray-600 bg-gray-100 px-3 py-1 rounded-full">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <p className="text-sm font-medium text-gray-700 mb-1">Seniority Level:</p>
+
+            <span className="text-xs text-gray-600">{challenge.seniority.join(', ')}</span>
+
+          </div>
+
+          <div>
+            <p className="text-sm font-medium text-gray-700 mb-1">Timeline:</p>
+            <p className="text-xs text-gray-600">{new Date(challenge.deadline).toDateString()}</p>
           </div>
         </div>
 
-        {/* Timeline */}
-        <div className="mb-3">
-          <p className="text-sm text-gray-600">Timeline:</p>
-          <p className="text-sm">{timeline}</p>
-        </div>
-
-        {/* Seniority Level */}
-        <div className="mb-4">
-          <p className="text-sm text-gray-600">Seniority Level:</p>
-          <p className="text-sm">{seniorityLevel}</p>
-        </div>
-
-        {/* View Challenge Button */}
-        <Link
-          href="#"
-          className="block w-full text-center bg-[#4285F4] text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors font-medium"
-        >
+        <Link href={`/challenges/${challenge.id}`} className="w-full flex items-center justify-center px-4 bg-blue-600 text-white text-sm font-medium py-2.5 rounded-lg hover:bg-blue-700 transition-colors">
           View Challenge
         </Link>
       </div>

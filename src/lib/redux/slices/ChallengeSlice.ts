@@ -28,6 +28,9 @@ const challengeApi = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    report: builder.query({
+      query: ()=> ({url: "/challenge/admin/analytics"})
+    })
   }),
 });
 
@@ -36,5 +39,6 @@ export const {
   useCreateChallengeMutation,
   useSingleChallengeQuery,
   useDeleteChallengeMutation,
-  useUpdateChallengeMutation
+  useUpdateChallengeMutation,
+  useReportQuery
 } = challengeApi;
