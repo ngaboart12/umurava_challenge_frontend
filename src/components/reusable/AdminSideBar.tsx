@@ -57,6 +57,8 @@ export default function AdminSideBar() {
 
     }
 
+    console.log("user profile", userProfile)
+
 
     return (
         <div className=" w-[70%] md:w-[22%] z-[1000] h-screen fixed">

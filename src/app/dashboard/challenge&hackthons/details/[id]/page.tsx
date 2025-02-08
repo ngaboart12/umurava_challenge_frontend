@@ -174,7 +174,7 @@ const ChallengeDetails = () => {
                                                 } />
                                         </div>
                                         <div className='flex flex-row gap-[10px] items-center'>
-                                            <Link href={`/admin/challenges/edit-challenge/1234`} className='h-[50px] bg-primary rounded-[8px] flex items-center justify-center text-white w-full'>Submit your work</Link>
+                                            <Link href={singleChallenge?.data?.submitLInk || ""}  target={`_blank`} className='h-[50px] bg-primary rounded-[8px] flex items-center justify-center text-white w-full'>Submit your work</Link>
                                         </div>
 
                                     </div>
