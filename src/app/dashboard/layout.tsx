@@ -1,5 +1,5 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/reusable/Navbar";
@@ -10,29 +10,35 @@ export default function RootLayout({
     children,
 }: Readonly<{ children: React.ReactNode }>) {
     const router = useRouter();
-    const { data: userProfile, status } = useSession();
     const [isAuth, setIsAuth] = useState<boolean | null>(null);
+    const [userProfile, setUserProfile] = useState<any>(null);
 
     useEffect(() => {
-        // Only handle the status change once loading is complete
-        if (status === "loading") return;
+        const checkSession = async () => {
+            try {
+                const session = await getSession();
+                
+                if (session) {
+                    setIsAuth(true);
+                    setUserProfile(session);
+                } else {
+                    setIsAuth(false);
+                    router.replace("/auth");
+                }
+            } catch (error) {
+                console.error("Error checking session:", error);
+                setIsAuth(false);
+                router.replace("/auth");
+            }
+        };
 
-        // Set authentication state based on status
-        if (status === "authenticated") {
-            setIsAuth(true);
-        } else if (status === "unauthenticated") {
-            // Only redirect if we're sure we're not authenticated
-            setIsAuth(false);
-            router.replace("/auth");
-        }
-    }, [status, router]);
+        checkSession();
+    }, [router]);
 
-    // Show empty state while loading
-    if (status === "loading" || isAuth === null) {
-        return <div className="w-full flex h-full">Loading...</div>;
+    if (isAuth === null) {
+        return <div className="w-full flex h-full"></div>;
     }
 
-    // Show regular user layout
     if (isAuth && userProfile?.user.role !== "admin") {
         return (
             <div className="flex flex-row w-full min-h-screen bg-[#F9FAFB]">
@@ -45,4 +51,6 @@ export default function RootLayout({
         );
     }
 
+
+    return null;
 }
